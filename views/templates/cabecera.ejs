@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/cabecera.css">
+<nav class="cabecera">
+  <div class="cabecera-container">
+    <a href="/" class="cabecera-brand">
+      <i class="fas fa-book-open"></i>
+      Biblioteca Andres
+    </a>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="cabecera-menus" id="navbarMenus">
+      <ul class="cabecera-menu">
+        <li class="cabecera-item">
+          <a class="cabecera-link" href="/" id="inicio-link">
+            <i class="fas fa-home"></i>Inicio
+          </a>
+        </li>
+        <li class="cabecera-item">
+          <a class="cabecera-link" href="/libro" id="libro-link">
+            <i class="fas fa-book"></i>Libros
+          </a>
+        </li>
+        <li class="cabecera-item">
+          <a class="cabecera-link" href="/editorial" id="editorial-link">
+            <i class="fas fa-building"></i>Editorial
+          </a>
+        </li>
+        <li class="cabecera-item">
+          <a class="cabecera-link" href="/autor" id="autor-link">
+            <i class="fas fa-feather-alt"></i>Autores
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="js/navbar.js"></script>
