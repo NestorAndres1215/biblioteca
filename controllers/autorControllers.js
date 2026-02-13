@@ -1,7 +1,7 @@
 const Autor = require('../models/Autor');
 const MENSAJES = require('../util/mensajes');
 
-// Listar autores
+
 module.exports.listar = async (req, res) => {
     try {
         const autores = await Autor.find({});
@@ -12,7 +12,39 @@ module.exports.listar = async (req, res) => {
     }
 };
 
-// Insertar nuevo autor
+module.exports.listarPorNombre = async (req, res) => {
+    try {
+        const { nombre } = req.params;
+        const autores = await Autor.find({ nombre: new RegExp(nombre, 'i') });
+        res.render('autor', { autores });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: MENSAJES.AUTOR.LISTAR_ERROR });
+    }
+};
+
+module.exports.listarPorApellido = async (req, res) => {
+    try {
+        const { apellido } = req.params;
+        const autores = await Autor.find({ apellido: new RegExp(apellido, 'i') });
+        res.render('autor', { autores });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: MENSAJES.AUTOR.LISTAR_ERROR });
+    }
+};
+
+module.exports.listarPorPais = async (req, res) => {
+    try {
+        const { pais } = req.params;
+        const autores = await Autor.find({ pais: new RegExp(pais, 'i') });
+        res.render('autor', { autores });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: MENSAJES.AUTOR.LISTAR_ERROR });
+    }
+};
+
 module.exports.insertar = async (req, res) => {
     try {
         const { aut: idAutor, nom: nombre, ape: apellido, pa: pais } = req.body;
@@ -30,7 +62,7 @@ module.exports.insertar = async (req, res) => {
     }
 };
 
-// Editar autor
+
 module.exports.editar = async (req, res) => {
     try {
         const { e_id: id, e_aut: idAutor, e_nom: nombre, e_ape: apellido, e_pa: pais } = req.body;
@@ -45,7 +77,7 @@ module.exports.editar = async (req, res) => {
     }
 };
 
-// Eliminar autor
+
 module.exports.eliminar = async (req, res) => {
     try {
         const { id } = req.params;

@@ -24,18 +24,15 @@ app.use(require('./routes/editorial'));
 app.use(require('./routes/autor'));
 app.use(require('./routes/usuario'));
 
-// Middleware 404
 app.use((req, res) => {
   res.status(404).render('404', { mensaje: '⚠ Página no encontrada' });
 });
 
-// Middleware errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).render('500', { mensaje: MENSAJES.ERROR_SERVIDOR });
 });
 
-// Iniciar servidor
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`${MENSAJES.SERVIDOR_CORRIENDO} → http://localhost:${PORT}`);

@@ -1,6 +1,7 @@
 const Editorial =require ('../models/Editorial')
 const MENSAJES = require('../util/mensajes');
-// Listar editoriales
+
+
 module.exports.listar = async (req, res) => {
   try {
     const editoriales = await Editorial.find({});
@@ -11,7 +12,7 @@ module.exports.listar = async (req, res) => {
   }
 };
 
-// Insertar nueva editorial
+
 module.exports.insertar = async (req, res) => {
   try {
     const { codi: idEditorial, edit: editorial } = req.body;
@@ -29,7 +30,7 @@ module.exports.insertar = async (req, res) => {
   }
 };
 
-// Editar editorial
+
 module.exports.editar = async (req, res) => {
   try {
     const { e_id: id, e_edi: idEditorial, e_edit: editorial } = req.body;
@@ -46,7 +47,6 @@ module.exports.editar = async (req, res) => {
   }
 };
 
-// Eliminar editorial
 module.exports.eliminar = async (req, res) => {
   try {
     const { id } = req.params;
