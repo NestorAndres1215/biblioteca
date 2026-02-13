@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas
+
 app.use(require('./routes/libro'));
 app.use(require('./routes/editorial'));
 app.use(require('./routes/autor'));
@@ -29,7 +29,6 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
   res.status(500).render('500', { mensaje: MENSAJES.ERROR_SERVIDOR });
 });
 

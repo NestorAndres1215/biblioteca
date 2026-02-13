@@ -1,4 +1,4 @@
-// Mensajes de la aplicación
+
 const MENSAJES = {
     AUTOR: {
         LISTAR_ERROR: '❌ Error al listar autores',
