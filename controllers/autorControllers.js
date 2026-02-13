@@ -12,6 +12,23 @@ module.exports.listar = async (req, res) => {
     }
 };
 
+module.exports.listarPorId = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!id) return res.status(400).json({ message: MENSAJES.AUTOR.VALIDACION });
+
+        const autor = await Autor.findById(id);
+
+        if (!autor) return res.status(404).json({ message: "Autor no encontrado" });
+
+        res.render('autor', { autores: [autor] });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: MENSAJES.AUTOR.LISTAR_ERROR });
+    }
+};
+
 module.exports.listarPorNombre = async (req, res) => {
     try {
         const { nombre } = req.params;

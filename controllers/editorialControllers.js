@@ -12,6 +12,32 @@ module.exports.listar = async (req, res) => {
   }
 };
 
+module.exports.listarPorId = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    if (!id) return res.status(400).json({ message: MENSAJES.EDITORIAL.VALIDACION });
+
+    const editorial = await Editorial.findById(id);
+    if (!editorial) return res.status(404).json({ message: "Editorial no encontrada" });
+
+    res.render('editorial', { editoriales: [editorial] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: MENSAJES.EDITORIAL.LISTAR_ERROR });
+  }
+};
+
+module.exports.listarPorNombre = async (req, res) => {
+  try {
+    const { nombre } = req.params;
+    const editoriales = await Editorial.find({ nombre: new RegExp(nombre, 'i') });
+    res.render('editorial', { editoriales });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: MENSAJES.EDITORIAL.LISTAR_ERROR });
+  }
+};
 
 module.exports.insertar = async (req, res) => {
   try {

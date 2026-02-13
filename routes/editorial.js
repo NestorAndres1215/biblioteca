@@ -9,13 +9,16 @@ router.get('/', (req, res) =>
 })
 
 const editorialController = require('../controllers/editorialControllers');
-//listar
+
 router.get('/editorial', editorialController.listar);
 
-//registrar
+router.get('/editorial/id/:id', editorialController.listarPorId);
+
+router.get('/editorial/nombre/:nombre', editorialController.listarPorNombre);
+
 router.post('/insertareditorial',editorialController.insertar);
-//editar
+
 router.post('/editareditorial',editorialController.editar);
-//eliminar 
+
 router.get('/eliminareditorial/:id', editorialController.eliminar);
 module.exports = router;

@@ -9,6 +9,8 @@ const autorController = require('../controllers/autorControllers');
 
 router.get('/autor', autorController.listarTodos);
 
+router.get('/autor/:id', autorController.listarPorId);
+
 router.get('/autor/nombre/:nombre', autorController.listarPorNombre);
 
 router.get('/autor/apellido/:apellido', autorController.listarPorApellido);
