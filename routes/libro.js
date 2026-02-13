@@ -9,13 +9,17 @@ router.get('/', (req, res) =>
 })
 
 const libroController = require('../controllers/libroControllers');
-//listar
+
+
 router.get('/libro', libroController.listar);
 
-//registrar
+router.get('/libro/id/:id', libroController.listarPorId);
+
+router.get('/libro/titulo/:titulo', libroController.listarPorTitulo);
+
 router.post('/insertarlibro',libroController.insertar);
-//editar
+
 router.post('/editar',libroController.editar);
-//eliminar 
+
 router.get('/eliminar/:id', libroController.eliminar);
 module.exports = router;
