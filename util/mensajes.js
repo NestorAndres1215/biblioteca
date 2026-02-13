@@ -1,34 +1,33 @@
-
 const MENSAJES = {
     AUTOR: {
-        LISTAR_ERROR: '❌ Error al listar autores',
-        INSERTAR_ERROR: '❌ Error al insertar el autor',
-        ACTUALIZAR_ERROR: '❌ Error al actualizar el autor',
-        ELIMINAR_ERROR: '❌ Error al eliminar el autor',
-        VALIDACION: '⚠ Todos los campos son obligatorios'
+        LISTAR_ERROR: 'ERROR AL LISTAR AUTORES',
+        INSERTAR_ERROR: 'ERROR AL INSERTAR EL AUTOR',
+        ACTUALIZAR_ERROR: 'ERROR AL ACTUALIZAR EL AUTOR',
+        ELIMINAR_ERROR: 'ERROR AL ELIMINAR EL AUTOR',
+        VALIDACION: 'TODOS LOS CAMPOS SON OBLIGATORIOS'
     },
     EDITORIAL: {
-        LISTAR_ERROR: '❌ Error al listar editoriales',
-        INSERTAR_ERROR: '❌ Error al insertar editorial',
-        ACTUALIZAR_ERROR: '❌ Error al actualizar editorial',
-        ELIMINAR_ERROR: '❌ Error al eliminar editorial',
-        VALIDACION: '⚠ Todos los campos son obligatorios'
+        LISTAR_ERROR: 'ERROR AL LISTAR EDITORIALES',
+        INSERTAR_ERROR: 'ERROR AL INSERTAR EDITORIAL',
+        ACTUALIZAR_ERROR: 'ERROR AL ACTUALIZAR EDITORIAL',
+        ELIMINAR_ERROR: 'ERROR AL ELIMINAR EDITORIAL',
+        VALIDACION: 'TODOS LOS CAMPOS SON OBLIGATORIOS'
     },
     GENERAL: {
-        ERROR_SERVIDOR: '❌ Error interno del servidor',
-        NOT_FOUND: '⚠ Recurso no encontrado',
-        SUCCESS: '✅ Operación realizada correctamente'
+        ERROR_SERVIDOR: 'ERROR INTERNO DEL SERVIDOR',
+        NOT_FOUND: 'RECURSO NO ENCONTRADO',
+        SUCCESS: 'OPERACION REALIZADA CORRECTAMENTE'
     },
     USUARIO: {
-        INSERTAR_ERROR: '❌ Error al registrar usuario',
-        VALIDACION: '⚠ Todos los campos son obligatorios'
+        INSERTAR_ERROR: 'ERROR AL REGISTRAR USUARIO',
+        VALIDACION: 'TODOS LOS CAMPOS SON OBLIGATORIOS'
     },
     LIBRO: {
-        LISTAR_ERROR: '❌ Error al listar libros',
-        INSERTAR_ERROR: '❌ Error al insertar libro',
-        ACTUALIZAR_ERROR: '❌ Error al actualizar libro',
-        ELIMINAR_ERROR: '❌ Error al eliminar libro',
-        VALIDACION: '⚠ Todos los campos son obligatorios'
+        LISTAR_ERROR: 'ERROR AL LISTAR LIBROS',
+        INSERTAR_ERROR: 'ERROR AL INSERTAR LIBRO',
+        ACTUALIZAR_ERROR: 'ERROR AL ACTUALIZAR LIBRO',
+        ELIMINAR_ERROR: 'ERROR AL ELIMINAR LIBRO',
+        VALIDACION: 'TODOS LOS CAMPOS SON OBLIGATORIOS'
     }
 };
 
