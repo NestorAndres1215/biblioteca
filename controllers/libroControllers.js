@@ -1,6 +1,6 @@
 
 const MENSAJES = require('../util/mensajes');
-const libroService = require('../services/libroService');
+const libroService = require('../service/libroService');
 
 module.exports.listar = async (req, res) => {
     try {

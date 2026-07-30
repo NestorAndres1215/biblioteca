@@ -25,7 +25,7 @@ const autorSchema = new Schema({
   }
 }, {
   versionKey: false,
-  timestamps: true 
+  timestamps: true
 });
 
 module.exports = mongoose.model('Autor', autorSchema);

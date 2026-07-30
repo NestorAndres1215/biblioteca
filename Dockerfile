@@ -2,11 +2,14 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+RUN npm install -g pnpm
+
+COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5001
 
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]

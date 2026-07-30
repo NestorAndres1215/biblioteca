@@ -1,5 +1,5 @@
 const MENSAJES = require('../util/mensajes');
-const usuarioService = require('../services/usuarioService');
+const usuarioService = require('../service/usuarioService');
 
 module.exports.listarTodos = async (req, res) => {
     try {

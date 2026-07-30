@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 
 const autorController = require('../controllers/autorControllers');
 
-router.get('/autor', autorController.listarTodos);
+router.get('/autor', autorController.listar);
 
 router.get('/autor/:id', autorController.listarPorId);
 
