@@ -1,125 +1,312 @@
-# Crud de Biblioteca con Node.js
+# 📚 CRUD de Biblioteca con Node.js
 
-Este es un proyecto CRUD para la gestión de una biblioteca utilizando Node.js, Express, MongoDB y EJS.
+Sistema CRUD para la gestión de una biblioteca desarrollado con **Node.js, Express, MongoDB y EJS**.
 
-## Tecnologías Utilizadas
+La aplicación permite administrar libros, autores y editoriales mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar).
+
+El proyecto está preparado para ejecutarse utilizando **Docker y Docker Compose**.
+
+---
+
+# 🚀 Tecnologías Utilizadas
+
 - Node.js
-- Express
+- Express.js
 - MongoDB
+- Mongoose
 - EJS
 - Bootstrap
+- Docker
+- Docker Compose
+- PNPM
 
-## Instalación
-1. Clona el repositorio:
-   ```sh
-   git clone https://github.com/TU_USUARIO/Crud-de-Biblioteca-con-Nodejs.git
-   ```
-2. Entra en el directorio del proyecto:
-   ```sh
-   cd Crud-de-Biblioteca-con-Nodejs
-   ```
-3. Instala las dependencias:
-   ```sh
-   npm install
-   ```
-4. Inicia el servidor:
-   ```sh
-   npm start
-   ```
+---
 
-## Estructura de la Base de Datos
+# ✨ Características
 
-### Colección: `libros`
+## 📖 Libros
+
+- Registrar libros.
+- Listar libros.
+- Actualizar libros.
+- Eliminar libros.
+
+## ✍️ Autores
+
+- Registrar autores.
+- Listar autores.
+- Actualizar autores.
+- Eliminar autores.
+
+## 🏢 Editoriales
+
+- Registrar editoriales.
+- Listar editoriales.
+- Actualizar editoriales.
+- Eliminar editoriales.
+
+---
+
+# 📂 Estructura del Proyecto
+
+```
+Crud-de-Biblioteca-con-Nodejs/
+│
+├── controllers/
+│   ├── autorController.js
+│   ├── libroController.js
+│   └── editorialController.js
+│
+├── models/
+│   ├── Autor.js
+│   ├── Libro.js
+│   └── Editorial.js
+│
+├── routes/
+│   ├── autor.js
+│   ├── libro.js
+│   └── editorial.js
+│
+├── service/
+│
+├── views/
+│   ├── autores/
+│   ├── libros/
+│   └── editoriales/
+│
+├── public/
+│   ├── css/
+│   └── js/
+│
+├── Dockerfile
+├── docker-compose.yml
+├── .dockerignore
+├── package.json
+├── pnpm-lock.yaml
+└── app.js
+```
+
+---
+
+# 🐳 Instalación con Docker
+
+## Requisitos
+
+Tener instalado:
+
+- Docker
+- Docker Compose
+
+---
+
+## Clonar repositorio
+
+```bash
+git clone https://github.com/NestorAndres1215/biblioteca.git
+```
+
+Entrar al proyecto:
+
+```bash
+cd biblioteca
+```
+
+---
+
+## Crear archivo de variables de entorno
+
+Crear un archivo:
+
+```
+.env
+```
+
+Ejemplo:
+
+```env
+PORT=5001
+MONGO_URI=mongodb://mongo:27017/biblioteca
+```
+
+---
+
+# ▶️ Ejecutar con Docker
+
+Construir la imagen y levantar los contenedores:
+
+```bash
+docker compose up --build
+```
+
+La aplicación estará disponible en:
+
+```
+http://localhost:5001
+```
+
+MongoDB se ejecutará automáticamente dentro de su contenedor.
+
+---
+
+# 💻 Instalación sin Docker
+
+Instalar dependencias:
+
+```bash
+pnpm install
+```
+
+Ejecutar aplicación:
+
+```bash
+pnpm start
+```
+
+---
+
+# 🗄️ Base de Datos
+
+Base de datos:
+
+```
+biblioteca
+```
+
+---
+
+## Colección libros
+
 ```json
 [
   {
-    "_id": "ObjectId(67d5f64c66fed84acb072f91)",
     "idLibro": "L001",
     "titulo": "Cien años de soledad",
     "idEditorial": "E001",
     "idAutor": "A001"
   },
   {
-    "_id": "ObjectId(67d5f64c66fed84acb072f92)",
     "idLibro": "L002",
     "titulo": "El principito",
     "idEditorial": "E002",
     "idAutor": "A002"
-  },
-  {
-    "_id": "ObjectId(67d5f64c66fed84acb072f93)",
-    "idLibro": "L003",
-    "titulo": "Don Quijote de la Mancha",
-    "idEditorial": "E003",
-    "idAutor": "A003"
   }
 ]
 ```
 
-### Colección: `editoriales`
-```json
-[
-  {
-    "_id": "ObjectId(67d5f62666fed84acb072f8e)",
-    "idEditorial": "E001",
-    "editorial": "Planeta"
-  },
-  {
-    "_id": "ObjectId(67d5f62666fed84acb072f8f)",
-    "idEditorial": "E002",
-    "editorial": "Santillana"
-  },
-  {
-    "_id": "ObjectId(67d5f62666fed84acb072f90)",
-    "idEditorial": "E003",
-    "editorial": "Alfaguara"
-  }
-]
-```
+---
 
-### Colección: `autores`
+## Colección autores
+
 ```json
 [
   {
-    "_id": "ObjectId(67d5f5c466fed84acb072f8b)",
     "idAutor": "A001",
     "nombre": "Julio",
     "apellido": "Ramírez",
     "pais": "Perú"
   },
   {
-    "_id": "ObjectId(67d5f5d266fed84acb072f8c)",
     "idAutor": "A002",
     "nombre": "María",
     "apellido": "López",
     "pais": "México"
-  },
-  {
-    "_id": "ObjectId(67d5f5d266fed84acb072f8d)",
-    "idAutor": "A003",
-    "nombre": "Carlos",
-    "apellido": "García",
-    "pais": "Argentina"
   }
 ]
 ```
 
-## Endpoints Principales
+---
 
-### Libros
-- `GET /libros` - Obtiene todos los libros
-- `POST /libros` - Agrega un nuevo libro
-- `PUT /libros/:id` - Actualiza un libro
-- `DELETE /libros/:id` - Elimina un libro
+## Colección editoriales
 
-### Autores
-- `GET /autores` - Obtiene todos los autores
-- `POST /autores` - Agrega un nuevo autor
-- `PUT /autores/:id` - Actualiza un autor
-- `DELETE /autores/:id` - Elimina un autor
+```json
+[
+  {
+    "idEditorial": "E001",
+    "editorial": "Planeta"
+  },
+  {
+    "idEditorial": "E002",
+    "editorial": "Santillana"
+  }
+]
+```
 
-### Editoriales
-- `GET /editoriales` - Obtiene todas las editoriales
-- `POST /editoriales` - Agrega una nueva editorial
-- `PUT /editoriales/:id` - Actualiza una editorial
-- `DELETE /editoriales/:id` - Elimina una editorial
+---
+
+# 🔌 Endpoints
+
+## 📚 Libros
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/libros` | Listar libros |
+| POST | `/libros` | Registrar libro |
+| PUT | `/libros/:id` | Actualizar libro |
+| DELETE | `/libros/:id` | Eliminar libro |
+
+---
+
+## ✍️ Autores
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/autores` | Listar autores |
+| POST | `/autores` | Registrar autor |
+| PUT | `/autores/:id` | Actualizar autor |
+| DELETE | `/autores/:id` | Eliminar autor |
+
+---
+
+## 🏢 Editoriales
+
+| Método | Endpoint | Descripción |
+|---|---|---|
+| GET | `/editoriales` | Listar editoriales |
+| POST | `/editoriales` | Registrar editorial |
+| PUT | `/editoriales/:id` | Actualizar editorial |
+| DELETE | `/editoriales/:id` | Eliminar editorial |
+
+---
+
+# 🐳 Comandos Docker
+
+Construir imagen:
+
+```bash
+docker compose build
+```
+
+Levantar contenedores:
+
+```bash
+docker compose up
+```
+
+Ejecutar en segundo plano:
+
+```bash
+docker compose up -d
+```
+
+Detener contenedores:
+
+```bash
+docker compose down
+```
+
+Ver logs:
+
+```bash
+docker compose logs -f
+```
+
+---
+
+# 👨‍💻 Autor
+
+Proyecto desarrollado con:
+
+- Node.js
+- Express
+- MongoDB
+- Docker
